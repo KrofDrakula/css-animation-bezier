@@ -36,7 +36,7 @@ This will output the stylesheet content as a string to the console.
 Internals
 ---------
 
-The library uses line segments to approximate the Bézier curve. It implements a very simple an naïve optimization algorithm that eliminates redundant line segments that do not contribute to the curve reproduction fidelity. The curve ends up using more line segments where the curve's slope varies more.
+The library uses line segments to approximate the Bézier curve. It implements a very simple and naïve optimization algorithm that eliminates redundant line segments that do not contribute to the curve reproduction fidelity. The curve ends up using more line segments where the curve's slope varies more.
 
 It could be improved further by using more advanced techniques, but it satisfies the need for speed and quality I had for the project I was working on. YMMV. Perhaps someone can enlighten me on a better way to approach this.
 
