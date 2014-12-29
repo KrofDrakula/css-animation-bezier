@@ -18,9 +18,15 @@
             }
             #container .node span { position: relative; top: 10px; }
             #container input { width: 5em; }
-            #container .params { position: fixed; top: 0; left: 0; z-index: 10; border-image: url(images/box.png) 10 10 10 10 fill repeat; border-width: 10px; }
+            #container .params { position: fixed; top: 20px; left: 20px; z-index: 10; border-image: url(images/box.png) 10 10 10 10 fill repeat; border-width: 10px; }
             #container textarea { font: normal 11px Consolas; width: 38em; height: 25em; padding: 0.8em; }
             #animatable { width: 64px; height: 64px; position: absolute; left: 50%; top: 50%; margin-left: -32px; margin-top: -32px; pointer-events: none; background: url(images/box.png) center no-repeat; display: none; z-index: 11;}
+
+            footer {
+                position: fixed; right: 10px; bottom: 10px; max-width: 300px;
+                padding: 5px;
+                background: rgba(200,180,180,0.5);
+            }
         </style>
     </head>
     <body>
@@ -71,6 +77,9 @@
             </div>
             <div id="animatable"></div>
         </div>
+        <footer>
+            <p>Lovingly crafted by <a href="http://about.me/klemen.slavic/" target="_blank">@krofdrakula</a>. The code is available under MIT license on GitHub: <a href="https://github.com/KrofDrakula/css-animation-bezier">download, fork, contribute!</a>. Share the love! &lt;3</p>
+        </footer>
         <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
         <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.min.js"></script>
