@@ -33,6 +33,81 @@ console.log(g.generate(b));
 
 This will output the stylesheet content as a string to the console.
 
+Options
+-------
+
+You can pass any of the following optional parameters to the `AnimationGenerator` class:
+
+```js
+var g = new AnimationGenerator({
+    segments: 128,          // the maximum number of segments to generate,
+                            // should be adequate for any kind of curve,
+                            // but we all remember how well "640k enough
+                            // for anybody" worked out, yeah?
+
+    orientAlongPath: false, // useful when you want to rotate the element
+                            // along the curve according to the slope (think
+                            // animating cars on rails)
+
+    maxError: 1,            // the number of pixels the line segments are
+                            // allowed to deviate from the Bézier curve;
+                            // the smaller, the better, but anything below
+                            // 1 shouldn't make much of a difference
+
+    name: 'MY_ANIMATION'    // what the generated animation name should be
+});
+```
+
+If you're stuck with a string you don't really know what to do with:
+
+### Vanilla JS
+
+```js
+// create the curve
+var b = new BezierCurve(
+    new Vector2d(10, 10),
+    new Vector2d(40, 10),
+    new Vector2d(10, 40),
+    new Vector2d(40, 40)
+);
+
+// create the generator
+var g = new AnimationGenerator({
+    name: 'MY_ANIMATION'
+});
+
+// create the <style> tag and fill it with the stylesheet content
+var s = document.createElement('style');
+s.textContent = g.generate(b);
+// attach it to <head>
+document.querySelector('head').appendChild(s);
+
+// you can now use the 'MY_ANIMATION' animation on an element
+```
+
+### jQuery
+
+```js
+// create the curve
+var b = new BezierCurve(
+    new Vector2d(10, 10),
+    new Vector2d(40, 10),
+    new Vector2d(10, 40),
+    new Vector2d(40, 40)
+);
+
+// create the generator
+var g = new AnimationGenerator({
+    name: 'MY_ANIMATION'
+});
+
+// create the <style> tag and fill it with the stylesheet content
+// and attach it to the head
+$('<style>').text(g.generate(b)).appendTo('head');
+
+// you can now use the 'MY_ANIMATION' animation on an element
+```
+
 Internals
 ---------
 
