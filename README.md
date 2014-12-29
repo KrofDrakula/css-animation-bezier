@@ -7,7 +7,7 @@ Try out the generator live in your browser right now!
 
 http://krofdrakula.github.io/css-animation-bezier/
 
-[![images/demo.gif](Animated demo)](http://krofdrakula.github.io/css-animation-bezier/)
+![images/demo.gif](Animated demo)
 
 Contributions welcome.
 
