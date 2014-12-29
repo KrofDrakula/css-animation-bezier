@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>CSS3 Beziér curve animation generator</title>
+        <style>
+            * { padding: 0; margin: 0; box-sizing: border-box; }
+            html, body { height: 100%; }
+            html, input, select { font: normal 12px Tahoma;}
+            #container, #container canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+            #container .node {
+                position: absolute; width: 10px; height: 10px;
+                border-radius: 10px;
+                background: green;
+                border: 1px solid rgba(0,0,0,0.5);
+                box-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+                cursor: pointer;
+            }
+            #container .node span { position: relative; top: 10px; }
+            #container input { width: 5em; }
+            #container .params { position: fixed; top: 0; left: 0; z-index: 10; border-image: url(images/box.png) 10 10 10 10 fill repeat; border-width: 10px; }
+            #container textarea { font: normal 11px Consolas; width: 38em; height: 25em; padding: 0.8em; }
+            #animatable { width: 64px; height: 64px; position: absolute; left: 50%; top: 50%; margin-left: -32px; margin-top: -32px; pointer-events: none; background: url(images/box.png) center no-repeat; display: none; z-index: 11;}
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <canvas></canvas>
+            <div class="params">
+                <table>
+                    <tr>
+                        <th>A</th>
+                        <td><input name="Ax"/></td>
+                        <td><input name="Ay"/></td>
+                        <th>B</th>
+                        <td><input name="Bx"/></td>
+                        <td><input name="By"/></td>
+                    </tr>
+                    <tr>
+                        <th>C</th>
+                        <td><input name="Cx"/></td>
+                        <td><input name="Cy"/></td>
+                        <th>D</th>
+                        <td><input name="Dx"/></td>
+                        <td><input name="Dy"/></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th>Animation length</th>
+                        <td><input name="anim_length" value="1"/> s</td>
+                    </tr>
+                    <tr>
+                        <th>Easing</th>
+                        <td>
+                            <select name="easing">
+                                <option value="linear">linear</option>
+                                <option value="ease-in">ease in</option>
+                                <option value="ease-out">ease out</option>
+                                <option value="ease-in-out">ease in-out</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th/>
+                        <td><button data-action="run">Run animation</button></td>
+                    </tr>
+                </table>
+
+                <textarea class="generated"></textarea>
+            </div>
+            <div id="animatable"></div>
+        </div>
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.min.js"></script>
+        <script src="curves.js"></script>
+        <script src="ui.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
