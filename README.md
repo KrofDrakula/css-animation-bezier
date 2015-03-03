@@ -1,8 +1,6 @@
 css-animation-bezier
 ====================
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/KrofDrakula/css-animation-bezier?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 A tool for generating CSS3 Animation using linear approximated Bézier paths.
 
 Try out the generator live in your browser right now!
